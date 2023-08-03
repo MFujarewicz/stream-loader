@@ -163,7 +163,8 @@ trait Kafka { this: Docker =>
         s"KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://${dockerNetwork.ip}:$kafkaPort",
         s"KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@127.0.0.1:$kafkaControllerPort",
         "ALLOW_PLAINTEXT_LISTENER=yes",
-        s"KAFKA_CFG_LOG_RETENTION_HOURS=${Int.MaxValue}"
+        s"KAFKA_CFG_LOG_RETENTION_HOURS=${Int.MaxValue}",
+        "BITNAMI_DEBUG=true"
       )
       .build()
 
